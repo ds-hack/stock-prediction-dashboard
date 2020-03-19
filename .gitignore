@@ -40,7 +40,12 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+
+# package
 yarn.lock
+
+# openapi-generator
+gen/
 
 # System Files
 .DS_Store
