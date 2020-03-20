@@ -27,6 +27,10 @@ export class DashboardSidenavComponent implements OnInit, OnDestroy {
     });
   }
 
+  noButtonClosed(): void {
+    this.sidenavService.toggle();
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

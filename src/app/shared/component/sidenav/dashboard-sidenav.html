@@ -1,5 +1,5 @@
-<mat-sidenav-container color="accent" class="sidenav-container">
-  <mat-sidenav #sidenav [fixedInViewport]="false" class="dashboard-sidenav">
+<mat-sidenav-container color="accent" class="sidenav-container" (backdropClick)="noButtonClosed()">
+  <mat-sidenav #sidenav [fixedInViewport]="false" class="dashboard-sidenav" (keydown.escape)="noButtonClosed()">
     <mat-nav-list>
       <span *ngIf="navPages">
         <a mat-list-item routerLink="{{nav?.link}}" *ngFor="let nav of navPages">{{nav?.name}}</a>
