@@ -1,0 +1,9 @@
+<mat-sidenav-container color="accent" class="sidenav-container">
+  <mat-sidenav #sidenav [fixedInViewport]="false" class="dashboard-sidenav">
+    <mat-nav-list>
+      <span *ngIf="navPages">
+        <a mat-list-item routerLink="{{nav?.link}}" *ngFor="let nav of navPages">{{nav?.name}}</a>
+      </span>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>

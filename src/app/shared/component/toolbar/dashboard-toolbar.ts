@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { SidenavService } from '../../../core/service/sidenav.service';
 
 @Component({
   selector: 'app-dashboard-toolbar',
   styleUrls: ['dashboard-toolbar.scss'],
   templateUrl: 'dashboard-toolbar.html',
 })
-export class DashboardToolbarComponent implements OnInit {
-    showSidenav: boolean;
+export class DashboardToolbarComponent {
 
-    ngOnInit(): void {
-        this.showSidenav = false;
-    }
+  constructor(private sidenavService: SidenavService) {}
 
-    toggleSidenav(): void {
-        this.showSidenav = !this.showSidenav;
-    }
+  toggleSidenav(): void {
+      this.sidenavService.toggle();
+  }
 }

@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <app-dshack-simple-layout>
       <app-dashboard-toolbar></app-dashboard-toolbar>
+      <app-dashboard-sidenav></app-dashboard-sidenav>
       <router-outlet></router-outlet>
     </app-dshack-simple-layout>
   `

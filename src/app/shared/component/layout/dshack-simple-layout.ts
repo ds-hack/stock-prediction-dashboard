@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['dshack-simple-layout.scss'],
   template: `
     <ng-content select="app-dashboard-toolbar"></ng-content>
+    <ng-content select="app-dashboard-sidenav"></ng-content>
     <ng-content select="router-outlet"></ng-content>
   `,
 })
