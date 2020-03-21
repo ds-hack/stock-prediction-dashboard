@@ -9,23 +9,89 @@ export class Sidenav {
       this.pages = {
         default: [
           {
-            name: 'sampleMenu1',
+            name: 'defaultMenu1',
             link: '/',
           },
           {
-            name: 'sampleMenu2',
+            name: 'defaultMenu2',
             link: '/',
           },
           {
-            name: 'sampleMenu3',
+            name: 'defaultMenu3',
             link: '/',
           },
           {
-            name: 'sampleMenu4',
+            name: 'defaultMenu4',
             link: '/',
           },
           {
-            name: 'sampleMenu5',
+            name: 'defaultMenu5',
+            link: '/',
+          },
+        ],
+        insights: [
+          {
+            name: 'insightsMenu1',
+            link: '/',
+          },
+          {
+            name: 'insightsMenu2',
+            link: '/',
+          },
+          {
+            name: 'insightsMenu3',
+            link: '/',
+          },
+          {
+            name: 'insightsMenu4',
+            link: '/',
+          },
+          {
+            name: 'insightsMenu5',
+            link: '/',
+          },
+        ],
+        predictions: [
+          {
+            name: 'predictionsMenu1',
+            link: '/',
+          },
+          {
+            name: 'predictionsMenu2',
+            link: '/',
+          },
+          {
+            name: 'predictionsMenu3',
+            link: '/',
+          },
+          {
+            name: 'predictionsMenu4',
+            link: '/',
+          },
+          {
+            name: 'predictionsMenu5',
+            link: '/',
+          },
+        ],
+        settings: [
+          {
+            name: 'settingsMenu1',
+            link: '/',
+          },
+          {
+            name: 'settingsMenu2',
+            link: '/',
+          },
+          {
+            name: 'settingsMenu3',
+            link: '/',
+          },
+          {
+            name: 'settingsMenu4',
+            link: '/',
+          },
+          {
+            name: 'settingsMenu5',
             link: '/',
           },
         ],
