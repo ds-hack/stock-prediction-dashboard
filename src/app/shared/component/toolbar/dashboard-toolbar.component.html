@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="dashboard-toolbar-header">
+  <button mat-icon-button (click)="toggleSidenav()"><mat-icon>menu</mat-icon></button>
+  <button mat-button routerLink="/" class="dashboard-title" (click)="changeSidenavMenu('default')">Dshack Dashboard</button>
+  <button mat-button routerLink="/" class="dashboard-menu" (click)="changeSidenavMenu('insights')">Insights</button>
+  <button mat-button routerLink="/" class="dashboard-menu" (click)="changeSidenavMenu('predictions')">Predictions</button>
+  <button mat-button [matMenuTriggerFor]="demoMenu" class="dashboard-menu">Demo</button>
+  <mat-menu #demoMenu="matMenu">
+    <a mat-menu-item routerLink="/pages/demo/insights">Insights</a>
+    <a mat-menu-item routerLink="/pages/demo/predictions">Predictions</a>
+  </mat-menu>
+  <span class="toolbar-spacer"></span>
+  <a mat-button href="https://github.com/ds-hack/stock-prediction-dashboard" target="_blank" rel="noopener noreferrer">
+    <span class="mat-button-wrapper">
+      <img src="../../../../assets/images/icons/GitHub-Mark-Light-32px.png" alt="dshack-github" class="github-logo">
+      Github
+    </span>
+  </a>
+</mat-toolbar>

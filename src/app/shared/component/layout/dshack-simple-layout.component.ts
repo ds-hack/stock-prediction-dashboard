@@ -6,11 +6,11 @@ import { SidenavService } from '../../../core/service/sidenav.service';
 import { Sidenav } from '../../../core/model/sidenav';
 
 @Component({
-  selector: 'app-dashboard-sidenav',
-  styleUrls: ['dashboard-sidenav.scss'],
-  templateUrl: 'dashboard-sidenav.html',
+  selector: 'app-dshack-simple-layout',
+  styleUrls: ['dshack-simple-layout.component.scss'],
+  templateUrl: 'dshack-simple-layout.component.html',
 })
-export class DashboardSidenavComponent implements OnInit, OnDestroy {
+export class DshackSimpleLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('sidenav') sidenavId: MatSidenav;
   public navPages: {name: string, link: string}[];
   public subscription: Subscription;

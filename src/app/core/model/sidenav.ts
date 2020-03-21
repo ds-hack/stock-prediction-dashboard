@@ -73,28 +73,6 @@ export class Sidenav {
             link: '/',
           },
         ],
-        settings: [
-          {
-            name: 'settingsMenu1',
-            link: '/',
-          },
-          {
-            name: 'settingsMenu2',
-            link: '/',
-          },
-          {
-            name: 'settingsMenu3',
-            link: '/',
-          },
-          {
-            name: 'settingsMenu4',
-            link: '/',
-          },
-          {
-            name: 'settingsMenu5',
-            link: '/',
-          },
-        ],
       };
   }
 }

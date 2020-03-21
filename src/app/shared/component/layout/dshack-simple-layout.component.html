@@ -1,4 +1,5 @@
-<mat-sidenav-container color="accent" class="sidenav-container" (backdropClick)="noButtonClosed()">
+<ng-content select="app-dashboard-toolbar"></ng-content>
+<mat-sidenav-container class="sidenav-container" (backdropClick)="noButtonClosed()">
   <mat-sidenav #sidenav [fixedInViewport]="false" class="dashboard-sidenav" (keydown.escape)="noButtonClosed()">
     <mat-nav-list>
       <span *ngIf="navPages">
@@ -6,4 +7,7 @@
       </span>
     </mat-nav-list>
   </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content select="router-outlet"></ng-content>
+  </mat-sidenav-content>
 </mat-sidenav-container>

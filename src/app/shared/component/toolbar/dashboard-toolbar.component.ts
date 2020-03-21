@@ -4,8 +4,8 @@ import { SidenavService } from '../../../core/service/sidenav.service';
 
 @Component({
   selector: 'app-dashboard-toolbar',
-  styleUrls: ['dashboard-toolbar.scss'],
-  templateUrl: 'dashboard-toolbar.html',
+  styleUrls: ['dashboard-toolbar.component.scss'],
+  templateUrl: 'dashboard-toolbar.component.html',
 })
 export class DashboardToolbarComponent {
 
