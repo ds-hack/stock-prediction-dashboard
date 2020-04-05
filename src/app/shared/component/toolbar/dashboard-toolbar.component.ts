@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { SidenavService } from '../../../core/service/sidenav.service';
+import { SidenavService } from '../../../core/service/app/sidenav.service';
 
 @Component({
   selector: 'app-dashboard-toolbar',

@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 
-import { SidenavService } from '../../../core/service/sidenav.service';
-import { Sidenav } from '../../../core/model/sidenav';
+import { SidenavService } from '../../../core/service/app/sidenav.service';
+import { Sidenav } from '../../../core/model/app/sidenav';
 
 @Component({
   selector: 'app-dshack-simple-layout',

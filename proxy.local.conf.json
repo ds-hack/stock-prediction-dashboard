@@ -1,0 +1,7 @@
+{
+    "/stock-prediction-dashboard": {
+        "target": "http://localhost:30080/",
+        "secure": false,
+        "pathRewrite": {"^/stock-prediction-dashboard" : ""}
+    }
+}

@@ -44,9 +44,6 @@ testem.log
 # package
 yarn.lock
 
-# openapi-generator
-gen/
-
 # System Files
 .DS_Store
 Thumbs.db

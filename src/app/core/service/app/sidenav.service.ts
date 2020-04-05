@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { Sidenav } from '../model/sidenav';
+import { Sidenav } from '../../model/app/sidenav';
 
 @Injectable({
     providedIn: 'root'

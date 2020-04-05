@@ -13,8 +13,8 @@ interface Company {
 export class InsightsDemoOverviewComponent {
   selected: string;
   companies: Company[] = [
-    {value: '0001', viewValue: '株式会社A'},
-    {value: '0002', viewValue: '株式会社B'},
-    {value: '0003', viewValue: '株式会社C'}
+    {value: '0001', viewValue: '株式会社Python'},
+    {value: '0002', viewValue: '株式会社Golang'},
+    {value: '0003', viewValue: '株式会社TypeScript'}
   ];
 }
