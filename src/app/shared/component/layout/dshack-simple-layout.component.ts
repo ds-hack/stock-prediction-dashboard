@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 
-import { SidenavService } from '../../../core/service/app/sidenav.service';
-import { Sidenav } from '../../../core/model/app/sidenav';
+import { SidenavService } from '../../../core/service/core.service';
+import { Sidenav } from '../../../core/model/core.model';
 
 @Component({
   selector: 'app-dshack-simple-layout',
@@ -12,8 +12,8 @@ import { Sidenav } from '../../../core/model/app/sidenav';
 })
 export class DshackSimpleLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('sidenav') sidenavId: MatSidenav;
-  public navPages: {name: string, link: string}[];
-  public subscription: Subscription;
+  navPages: {name: string, link: string}[];
+  subscription: Subscription;
 
   constructor(private sidenavService: SidenavService) { }
 

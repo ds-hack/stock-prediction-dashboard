@@ -1,6 +1,6 @@
 {
     "/stock-prediction-dashboard": {
-        "target": "http://localhost:30080/",
+        "target": "http://34.84.203.5:30080/",
         "secure": false,
         "pathRewrite": {"^/stock-prediction-dashboard" : ""}
     }

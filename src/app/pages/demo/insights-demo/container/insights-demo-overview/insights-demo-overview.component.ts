@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { InsightsCompanyService } from '../../../../../core/service/core.service';
 
 interface Company {
-  value: string;
-  viewValue: string;
+  stockCode: string;
+  companyName: string;
 }
 
 @Component({
@@ -10,11 +12,22 @@ interface Company {
   styleUrls: ['insights-demo-overview.component.scss'],
   templateUrl: 'insights-demo-overview.component.html',
 })
-export class InsightsDemoOverviewComponent {
+export class InsightsDemoOverviewComponent implements OnInit {
   selected: string;
   companies: Company[] = [
-    {value: '0001', viewValue: '株式会社Python'},
-    {value: '0002', viewValue: '株式会社Golang'},
-    {value: '0003', viewValue: '株式会社TypeScript'}
+    {stockCode: '6028', companyName: '株式会社Python'},
+    {stockCode: '3906', companyName: '株式会社Golang'},
+    {stockCode: '9433', companyName: '株式会社TypeScript'}
   ];
+
+  constructor(private insightsCompanyService: InsightsCompanyService) { }
+
+  ngOnInit() {
+    this.selected = this.companies[0].stockCode;
+    this.insightsCompanyService.selectCompany(this.selected);
+  }
+
+  onSelectionChanged(): void {
+    this.insightsCompanyService.selectCompany(this.selected);
+  }
 }

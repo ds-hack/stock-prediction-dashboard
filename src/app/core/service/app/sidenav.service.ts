@@ -7,10 +7,9 @@ import { Sidenav } from '../../model/app/sidenav';
     providedIn: 'root'
 })
 export class SidenavService {
-
-  public sidenav = new Sidenav();
-  public sidenavSubject = new Subject<Sidenav>();
-  public sidenavState = this.sidenavSubject.asObservable();
+  sidenav = new Sidenav();
+  sidenavSubject = new Subject<Sidenav>();
+  sidenavState = this.sidenavSubject.asObservable();
 
   toggle(): void {
     this.sidenav.showSidenav = !this.sidenav.showSidenav;

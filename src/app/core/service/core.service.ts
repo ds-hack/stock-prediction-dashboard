@@ -14,8 +14,11 @@ export const API_SERVICES = [
 
 // inapp services
 export * from './app/sidenav.service';
+export * from './app/insights-company.service';
 import { SidenavService } from './app/sidenav.service';
+import { InsightsCompanyService } from './app/insights-company.service';
 
 export const APP_SERVICES = [
     SidenavService,
+    InsightsCompanyService,
 ];

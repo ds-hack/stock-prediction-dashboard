@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { SidenavService } from '../../../core/service/app/sidenav.service';
 
@@ -7,8 +7,11 @@ import { SidenavService } from '../../../core/service/app/sidenav.service';
   styleUrls: ['insights-demo.component.scss'],
   templateUrl: 'insights-demo.component.html',
 })
-export class InsightsDemoComponent {
+export class InsightsDemoComponent implements OnInit {
 
   constructor(private sidenavService: SidenavService) {}
 
+  ngOnInit() {
+    this.sidenavService.changeMenu('insights');
+  }
 }

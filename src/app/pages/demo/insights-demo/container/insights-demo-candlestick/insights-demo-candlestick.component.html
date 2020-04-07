@@ -1,1 +1,32 @@
-<h2>Candle Stick Chart</h2>
+<div class="candle-stick-header">
+  <h2>Candle Stick Chart</h2>
+  <span class="flex-spacer"></span>
+  <mat-form-field class="date-picker">
+    <mat-label>Choose a start date</mat-label>
+    <input matInput [min]="minStartDate" [max]="maxStartDate"
+    [matDatepicker]="startDatePicker" [(ngModel)]="startDate" (dateChange)="onStartDateChange()">
+    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="date-picker">
+    <mat-label>Choose a end date</mat-label>
+    <input matInput [min]="minEndDate" [max]="maxEndDate"
+    [matDatepicker]="endDatePicker" [(ngModel)]="endDate" (dateChange)="onEndDateChange()">
+    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
+  </mat-form-field>
+</div>
+<div class="apply-button">
+  <span class="flex-spacer"></span>
+  <button mat-raised-button color="accent" (click)="onDateApplied()">Apply</button>
+</div>
+<ng-container *ngIf="date">
+  <app-candle-stick-chart
+    [x]="date"
+    [open]="open"
+    [low]="low"
+    [high]="high"
+    [close]="close"
+  >
+  </app-candle-stick-chart>
+</ng-container>

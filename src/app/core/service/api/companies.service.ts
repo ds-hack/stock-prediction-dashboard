@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorHandler, HandleError } from './http-error-handler.service';
-import { CompanyWrapper } from '../../model/core.model';
+import { CompanyWrapper, CompanyDetail } from '../../model/core.model';
 
 @Injectable()
 export class CompaniesService {
@@ -20,6 +20,13 @@ export class CompaniesService {
     return this.http.get<CompanyWrapper>(this.baseUrl + '/companies')
       .pipe(
         catchError(this.handleError<CompanyWrapper>())
+      );
+  }
+
+  getCompany(stockCode: string): Observable<CompanyDetail> {
+    return this.http.get<CompanyDetail>(this.baseUrl + `/companies/${stockCode}`)
+      .pipe(
+        catchError(this.handleError<CompanyDetail>())
       );
   }
 }
