@@ -1,11 +1,22 @@
 .candle-stick-header, .apply-button {
-    display: flex;
+  display: flex;
+}
+
+.candle-stick-header {
+  color: #4e5665;
 }
 
 .flex-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .date-picker {
-    margin-left: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.plot-button {
+  width: 80px;
+  padding: 0;
+  text-align: center;
+  margin-left: 1.5rem;
 }

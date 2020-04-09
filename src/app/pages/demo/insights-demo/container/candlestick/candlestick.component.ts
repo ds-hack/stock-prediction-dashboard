@@ -91,4 +91,8 @@ export class InsightsDemoCandleStickComponent implements OnInit {
       this.datePipe.transform(this.endDate, 'yyyy-MM-dd'),
     );
   }
+
+  openAddPlotDialog(): void {
+    console.log('Hi');
+  }
 }

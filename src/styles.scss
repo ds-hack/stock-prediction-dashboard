@@ -27,6 +27,11 @@ $stock-prediction-dashboard-theme: mat-light-theme($stock-prediction-dashboard-p
 @include angular-material-theme($stock-prediction-dashboard-theme);
 
 /* You can add global styles to this file, and also import other style files */
+$custom-typography: mat-typography-config(
+  $font-family: 'Open Sans, sans-serif',
+  $title: mat-typography-level(22px, 32px, 500),
+);
+@include mat-base-typography($custom-typography);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
