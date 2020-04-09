@@ -8,8 +8,8 @@ import { RawStockPriceWrapper, CompanyDetail } from '../../../../../core/model/c
 
 @Component({
   selector: 'app-insights-demo-candlestick-container',
-  styleUrls: ['insights-demo-candlestick.component.scss'],
-  templateUrl: 'insights-demo-candlestick.component.html',
+  styleUrls: ['candlestick.component.scss'],
+  templateUrl: 'candlestick.component.html',
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'ja-JP' },
     DatePipe,

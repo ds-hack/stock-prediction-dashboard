@@ -9,8 +9,8 @@ interface Company {
 
 @Component({
   selector: 'app-insights-demo-overview-container',
-  styleUrls: ['insights-demo-overview.component.scss'],
-  templateUrl: 'insights-demo-overview.component.html',
+  styleUrls: ['insights-overview.component.scss'],
+  templateUrl: 'insights-overview.component.html',
 })
 export class InsightsDemoOverviewComponent implements OnInit {
   selected: string;

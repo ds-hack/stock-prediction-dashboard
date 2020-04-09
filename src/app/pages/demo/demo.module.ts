@@ -6,14 +6,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 
 import { DemoRoutingModule } from './demo-routing.module';
 import { DemoComponent } from './demo.component';
 import { InsightsDemoComponent } from './insights-demo/insights-demo.component';
-import { InsightsDemoOverviewComponent } from './insights-demo/container/insights-demo-overview/insights-demo-overview.component';
-import { InsightsDemoCandleStickComponent } from './insights-demo/container/insights-demo-candlestick/insights-demo-candlestick.component';
+import { InsightsDemoOverviewComponent } from './insights-demo/container/insights-overview/insights-overview.component';
+import { InsightsDemoCandleStickComponent } from './insights-demo/container/candlestick/candlestick.component';
+import { InsightsDemoOhlcTableComponent } from './insights-demo/container/ohlc-table/ohlc-table.component';
+import { InsightsDemoPriceIndexComponent } from './insights-demo/container/price-index/price-index.component';
 import { PredictionsDemoComponent } from './predictions-demo/predictions-demo.component';
 
 @NgModule({
@@ -26,6 +29,7 @@ import { PredictionsDemoComponent } from './predictions-demo/predictions-demo.co
     MatButtonModule,
     MatDatepickerModule,
     MatDividerModule,
+    MatGridListModule,
     MatInputModule,
     MatSelectModule,
   ],
@@ -34,6 +38,8 @@ import { PredictionsDemoComponent } from './predictions-demo/predictions-demo.co
     InsightsDemoComponent,
     InsightsDemoOverviewComponent,
     InsightsDemoCandleStickComponent,
+    InsightsDemoOhlcTableComponent,
+    InsightsDemoPriceIndexComponent,
     PredictionsDemoComponent,
   ],
 })

@@ -1,0 +1,12 @@
+<div class="sticky-table-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <span *ngFor="let column of tableColumns; index as i">
+      <ng-container matColumnDef="{{column}}">
+        <th mat-header-cell *matHeaderCellDef> {{headerTitles[i]}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
+    </span>
+    <tr mat-header-row *matHeaderRowDef="tableColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+  </table>
+</div>
