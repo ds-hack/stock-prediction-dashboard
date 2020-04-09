@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { Subscription } from 'rxjs';
 import { StockPricesService, InsightsCompanyService } from '../../../../../core/service/core.service';
-import { RawStockPriceWrapper, CompanyDetail } from '../../../../../core/model/core.model';
+import { RawStockPriceWrapper, CompanyDetail, MAPlots } from '../../../../../core/model/core.model';
+import { InsightsDemoPlotDialogComponent } from '../plot-dialog/plot-dialog.component';
 
 @Component({
   selector: 'app-insights-demo-candlestick-container',
@@ -30,11 +32,13 @@ export class InsightsDemoCandleStickComponent implements OnInit {
   high: number[];
   low: number[];
   close: number[];
+  maPlots: MAPlots;
 
   constructor(
     private stockPriceService: StockPricesService,
     private insightsCompanyService: InsightsCompanyService,
-    private datePipe: DatePipe) { }
+    private datePipe: DatePipe,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.subscription = this.insightsCompanyService.companyState
@@ -48,6 +52,7 @@ export class InsightsDemoCandleStickComponent implements OnInit {
     });
 
     this.initDatePicker();
+    this.initMAPlots();
   }
 
   getStockPrices(stockCode: string, startDate?: string, endDate?: string): void {
@@ -76,6 +81,26 @@ export class InsightsDemoCandleStickComponent implements OnInit {
     this.maxEndDate = new Date();
   }
 
+  initMAPlots(): void {
+    this.maPlots = {
+      applySMA: [
+        {title: 'SMA(5days)', checked: false},
+        {title: 'SMA(25days)', checked: false},
+        {title: 'SMA(75days)', checked: false},
+      ],
+      applyEMA: [
+        {title: 'EMA(5days)', checked: false},
+        {title: 'EMA(25days)', checked: false},
+        {title: 'EMA(75days)', checked: false},
+      ],
+      applyWMA: [
+        {title: 'WMA(5days)', checked: false},
+        {title: 'WMA(25days)', checked: false},
+        {title: 'WMA(75days)', checked: false},
+      ],
+    };
+  }
+
   onStartDateChange(): void {
     this.minEndDate = this.startDate;
   }
@@ -93,6 +118,15 @@ export class InsightsDemoCandleStickComponent implements OnInit {
   }
 
   openAddPlotDialog(): void {
-    console.log('Hi');
+    const dialogRef = this.dialog.open(InsightsDemoPlotDialogComponent, {
+      width: '600px',
+      data: this.maPlots,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        this.maPlots = result;
+      }
+    });
   }
 }

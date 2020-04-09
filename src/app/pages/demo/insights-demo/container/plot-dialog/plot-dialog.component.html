@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Moving Average Plots</h1>
+<div mat-dialog-content class="dialog-description">
+  <p>追加したい移動平均線グラフを選択し、Applyボタンを押してください</p>
+</div>
+<mat-card class="dialog-card">
+  <mat-card-content>
+    <div class="dialog-card-header">
+      <h2 class="dialog-h2">単純移動平均(SMA)</h2>
+      <span class="flex-spacer"></span>
+      <button mat-raised-button color="warn" class="plot-button" (click)="checkAll(maPlots.applySMA)">Check All</button>
+    </div>
+    <section class="combobox-section">
+      <span *ngFor="let ma of maPlots.applySMA">
+        <mat-checkbox class="dialog-combobox" [(ngModel)]="ma.checked">{{ma.title}}</mat-checkbox>
+      </span>
+    </section>
+  </mat-card-content>
+</mat-card>
+<mat-card class="dialog-card">
+  <mat-card-content>
+    <div class="dialog-card-header">
+      <h2 class="dialog-h2">指数移動平均(EMA)</h2>
+      <span class="flex-spacer"></span>
+      <button mat-raised-button color="warn" class="plot-button" (click)="checkAll(maPlots.applyEMA)">Check All</button>
+    </div>
+    <section class="combobox-section">
+      <span *ngFor="let ma of maPlots.applyEMA">
+        <mat-checkbox class="dialog-combobox" [(ngModel)]="ma.checked">{{ma.title}}</mat-checkbox>
+      </span>
+    </section>
+  </mat-card-content>
+</mat-card>
+<mat-card class="dialog-card">
+  <mat-card-content>
+    <div class="dialog-card-header">
+      <h2 class="dialog-h2">加重移動平均(WMA)</h2>
+      <span class="flex-spacer"></span>
+      <button mat-raised-button color="warn" class="plot-button" (click)="checkAll(maPlots.applyWMA)">Check All</button>
+    </div>
+    <section class="combobox-section">
+      <span *ngFor="let ma of maPlots.applyWMA">
+        <mat-checkbox class="dialog-combobox" [(ngModel)]="ma.checked">{{ma.title}}</mat-checkbox>
+      </span>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="maPlots" cdkFocusInitial>Apply</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Cancel</button>
+  <button mat-button (click)="clearAll()">Clear</button>
+</div>

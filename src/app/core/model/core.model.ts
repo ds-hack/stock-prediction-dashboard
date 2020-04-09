@@ -5,3 +5,4 @@ export * from './api/raw-stock-price-wrapper.model';
 
 // inapp models
 export * from './app/sidenav';
+export * from './app/ma-plots';

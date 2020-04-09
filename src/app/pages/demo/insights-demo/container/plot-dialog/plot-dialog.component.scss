@@ -1,0 +1,31 @@
+.dialog-h2 {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.dialog-description {
+  margin-bottom: 10px;
+}
+
+.combobox-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.dialog-combobox {
+  margin: 0 10px;
+}
+
+.dialog-card {
+  margin-bottom: 5px;
+}
+
+.dialog-card-header {
+  display: flex;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
