@@ -68,7 +68,7 @@ export class InsightsDemoCandleStickComponent implements OnInit {
 
   // startDate <= endDateをdatePickerのパラメータにより強制する
   initDatePicker(): void {
-    this.startDate = new Date(2020, 0, 1);
+    this.startDate = new Date(2019, 0, 1);
     this.endDate = new Date();
     this.minStartDate = new Date(2015, 0, 1);
     this.maxStartDate = this.endDate;
@@ -94,6 +94,23 @@ export class InsightsDemoCandleStickComponent implements OnInit {
         {key: 'wma75', title: 'WMA(75days)', checked: false},
       ],
     };
+  }
+
+  updateGraphData(): void {
+    // ローソク足チャートと平均移動線の更新を併せて実施する
+    this.getStockPrices(
+      this.stockCode,
+      this.datePipe.transform(this.startDate, 'yyyy-MM-dd'),
+      this.datePipe.transform(this.endDate, 'yyyy-MM-dd'),
+    );
+    if (this.maTypes) {
+      this.getStockPricesMA(
+        this.stockCode,
+        this.maTypes,
+        this.datePipe.transform(this.startDate, 'yyyy-MM-dd'),
+        this.datePipe.transform(this.endDate, 'yyyy-MM-dd'),
+      );
+    }
   }
 
   getStockPrices(stockCode: string, startDate?: string, endDate?: string): void {
@@ -143,33 +160,20 @@ export class InsightsDemoCandleStickComponent implements OnInit {
     this.maxStartDate = this.endDate;
   }
 
-  onDateApplied(): void {
-    this.getStockPrices(
-      this.stockCode,
-      this.datePipe.transform(this.startDate, 'yyyy-MM-dd'),
-      this.datePipe.transform(this.endDate, 'yyyy-MM-dd'),
-    );
-  }
-
   openAddPlotDialog(): void {
     const dialogRef = this.dialog.open(InsightsDemoPlotDialogComponent, {
       width: '600px',
       data: this.maPlots,
     });
     dialogRef.afterClosed().subscribe((result: MAPlots) => {
-      if (result) {
+      if (result && this.maPlots !== result) {
         let maArray: string[] = [];
         Object.values(result).forEach((item: {key: string, title: string, checked: boolean}[]) => {
           maArray = maArray.concat(item.filter(x => x.checked).map(x => x.key));
         });
         if (maArray.length > 0) {
           this.maTypes = maArray.join(',');
-          this.getStockPricesMA(
-            this.stockCode,
-            this.maTypes,
-            this.datePipe.transform(this.startDate, 'yyyy-MM-dd'),
-            this.datePipe.transform(this.endDate, 'yyyy-MM-dd'),
-          );
+          this.updateGraphData();
         } else {
           // チェックがclearされた場合はmaTypesとmaDataを初期状態に戻す
           this.maTypes = undefined;

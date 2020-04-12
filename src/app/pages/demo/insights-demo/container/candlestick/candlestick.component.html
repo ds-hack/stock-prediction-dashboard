@@ -19,7 +19,7 @@
 <div class="apply-button">
   <span class="flex-spacer"></span>
   <button mat-raised-button color="warn" class="plot-button" (click)="openAddPlotDialog()">Add MA</button>
-  <button mat-raised-button color="accent" class="plot-button" (click)="onDateApplied()">Apply</button>
+  <button mat-raised-button color="accent" class="plot-button" (click)="updateGraphData()">Apply</button>
 </div>
 <ng-container *ngIf="date">
   <app-candle-stick-chart
