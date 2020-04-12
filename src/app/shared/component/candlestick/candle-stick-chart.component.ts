@@ -15,16 +15,19 @@ export class CandleStickChartComponent implements OnChanges {
   @Input() high: number[];
   @Input() low: number[];
   @Input() close: number[];
+  // 移動平均線など付加的なplotを加える場合、subDataにplotly形式のデータ配列を渡す
+  @Input() subData: object[];
   // デフォルトのOptionはコンポーネント内で直接指定し、変更したいオプションは本コンポーネントを使用する側から受け渡す
   @Input() dataOptions?: object; // plotly.js Figure Options https://plotly.com/javascript/reference/
   @Input() layoutOptions?: object; // plotly.js Layout Options https://plotly.com/javascript/reference/#layout
   @Input() configOptions?: object; // plotly.js Config Options https://plotly.com/javascript/configuration-options/#
-  graph = {data: [], layout: {}, config: {displayModeBar: false}};
+  graph = {data: [], layout: {}, config: {}};
 
   constructor(private datePipe: DatePipe) { }
 
   ngOnChanges() {
     if (this.x) {
+      this.graph = {data: [], layout: {}, config: {}};
       this.buildGraphData();
       this.buildGraphLayout();
       this.buildGraphConfig();
@@ -34,6 +37,7 @@ export class CandleStickChartComponent implements OnChanges {
   buildGraphData(): void {
     const data = {
       x: this.x,
+      name: 'Raw data',
       open: this.open,
       high: this.high,
       low: this.low,
@@ -50,8 +54,10 @@ export class CandleStickChartComponent implements OnChanges {
         data[key] = this.dataOptions[key];
       });
     }
-    this.graph.data.pop();
     this.graph.data.push(data);
+    if (this.subData) {
+      this.graph.data = this.graph.data.concat(this.subData);
+    }
   }
 
   buildGraphLayout(): void {
@@ -75,7 +81,7 @@ export class CandleStickChartComponent implements OnChanges {
         b: 40,
         l: 60,
       },
-      showlegend: false,
+      showlegend: true,
       xaxis: {
         autorange: true,
         domain: [0, 1],
